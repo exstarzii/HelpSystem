@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route, Routes, BrowserRouter } from "react-router-dom"
+import MakeRequestComp from './components/MakeRequestComp/MakeRequestComp';
+import RequestsComp from './components/RequestsComp/RequestsComp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes >
+        <Route exact path='/' element={<MakeRequestComp/>}/>
+        <Route path='/makerequest' element={<MakeRequestComp/>}/>
+        <Route path='/requests' element={<RequestsComp/>}/>
+      </Routes >
+    </BrowserRouter>
   </React.StrictMode>
 );
 
