@@ -25,6 +25,12 @@ function RequestsComp(){
       // handle success
       console.log(response);
       setIsLoaded(true);
+      function compareNumeric(a, b) {
+        if (a.count < b.count) return 1;
+        if (a.count == b.count) return 0;
+        if (a.count > b.count) return -1;
+      }
+      response.data.sort(compareNumeric);
       setRows(response.data);
     })
     .catch(function (error) {
